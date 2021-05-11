@@ -8,27 +8,9 @@ export default function useFetch(){
         error: false,
     })
 
-    const getAllData = async () =>{
-        state.isLoading = true;
+    const doRequest = async (url, item = '') =>{
         try{
-            const response = await fetch(process.env.VUE_APP_ALL_ITEMS_URL);
-            const data = await response.json();
-            state.results = data;
-
-            state.results ? state.step = 1 : state.step = 0;
-        }
-        catch(error){
-            state.error = error;
-        }
-        finally{
-            state.isLoading = false;
-        }
-    }
-
-    const getDataForCategory = async (item) =>{
-        state.isLoading = true;
-        try{
-            const response = await fetch(`${process.env.VUE_APP_ITEMS_FOR_CATEGORY}${item}`);
+            const response = await fetch(`${url}${item}`);
             const data = await response.json();
             state.results = data;
 
@@ -44,7 +26,6 @@ export default function useFetch(){
 
     return{
         ...toRefs(state),
-        getAllData,
-        getDataForCategory
+        doRequest,
     }
 }

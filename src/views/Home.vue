@@ -18,21 +18,14 @@ export default {
   name: "Home",
 
   setup() {
-    const {
-      isLoading,
-      results,
-      step,
-      error,
-      getAllData,
-      getDataForCategory,
-    } = useFetch();
+    const { isLoading, results, step, error, doRequest } = useFetch();
 
     onMounted(() => {
-      getAllData();
+      doRequest(process.env.VUE_APP_ALL_ITEMS_URL);
     });
 
     const handleItemClick = (item) => {
-      getDataForCategory(item);
+      doRequest(process.env.VUE_APP_ITEMS_FOR_CATEGORY, item);
     };
 
     return {
@@ -40,8 +33,7 @@ export default {
       results,
       step,
       error,
-      getAllData,
-      getDataForCategory,
+      doRequest,
       handleItemClick,
     };
   },
