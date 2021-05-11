@@ -1,12 +1,14 @@
 <template>
-  <nav class="nav">
-    <div class="nav__logo">
-      <i class="fas fa-store-alt fa-3x"></i>
-    </div>
-    <div class="nav__basket">
-      <i class="fas fa-shopping-basket"></i>
-    </div>
-  </nav>
+  <header>
+    <nav class="nav">
+      <div class="nav__logo">
+        <i class="fas fa-store-alt fa-3x"></i>
+      </div>
+      <div class="nav__cart">
+        <i class="fas fa-shopping-basket"></i>
+      </div>
+    </nav>
+  </header>
   <router-view />
 </template>
 
@@ -35,7 +37,7 @@ body {
     padding: 20px 0 0 0;
   }
 
-  .nav__basket {
+  .nav__cart {
     width: 50px;
     height: 50px;
     position: relative;
