@@ -1,5 +1,10 @@
 <template>
-  <div class="item"></div>
+  <div class="item">
+    <img class="item__image" :src="resultItem.image" />
+    <h2 class="item__title">{{ resultItem.title }}</h2>
+    <p class="item__price">{{ resultItem.price + "$" }}</p>
+    <p class="item__category">{{ resultItem.category }}</p>
+  </div>
 </template>
 
 <script>
@@ -16,9 +21,40 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../style/_StyleVariables";
 .item {
-  width: 90%;
-  height: 400px;
-  background-color: orange;
+  width: 80%;
+  min-height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+
+  .item__image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .item__title {
+    text-align: center;
+  }
+
+  .item__price {
+    font-size: $font_mobile;
+    font-weight: bold;
+    color: $main;
+  }
+
+  .item__category {
+    width: 50%;
+    height: 30px;
+    background-color: $main;
+    border-radius: 100px;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+  }
 }
 </style>
