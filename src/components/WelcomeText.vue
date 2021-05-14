@@ -30,6 +30,7 @@ export default {
   .welcome__p {
     text-align: center;
     margin-top: 40px;
+    line-height: 200%;
     .welcome__p--firstLetter {
       color: $main;
       font-weight: bold;

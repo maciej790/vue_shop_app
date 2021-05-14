@@ -21,7 +21,8 @@
 }
 
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Heebo", sans-serif;
+  background-color: $bacground;
 }
 .nav {
   width: 100%;

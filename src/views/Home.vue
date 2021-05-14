@@ -2,19 +2,25 @@
   <div class="container">
     <WelcomeText />
     <CategoriesMenu @handleItemClick="handleItemClick" />
-    <ProductsResult />
-    {{ results }}
+    <section class="container__allResults">
+      <MainResultItem
+        v-for="item in results"
+        :key="item.id"
+        :resultItem="item"
+      />
+    </section>
   </div>
 </template>
 
 <script>
+import { onMounted } from "vue";
+import useFetch from "../composable/useFetch";
 import WelcomeText from "../components/WelcomeText.vue";
 import CategoriesMenu from "../components/CategoriesMenu.vue";
-import ProductsResult from "../components/ProductsResult.vue";
-import useFetch from "../composable/useFetch";
-import { onMounted } from "vue";
+import MainResultItem from "../components/MainResultItem.vue";
+
 export default {
-  components: { WelcomeText, CategoriesMenu, ProductsResult },
+  components: { WelcomeText, CategoriesMenu, MainResultItem },
   name: "Home",
 
   setup() {
@@ -46,5 +52,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .container__allResults {
+    margin-top: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 100px;
+    justify-items: center;
+  }
 }
 </style>
