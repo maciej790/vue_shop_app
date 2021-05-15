@@ -3,6 +3,7 @@
     <WelcomeText />
     <CategoriesMenu @handleItemClick="handleItemClick" />
     <Loading v-if="isLoading" />
+    <ErrorInfo v-if="!isLoading && error" :error="error" />
     <section
       class="container__allResults"
       v-if="step == 1 && !isLoading && !error"
@@ -23,9 +24,16 @@ import WelcomeText from "../components/WelcomeText.vue";
 import CategoriesMenu from "../components/CategoriesMenu.vue";
 import MainResultItem from "../components/MainResultItem.vue";
 import Loading from "../components/Loading.vue";
+import ErrorInfo from "../components/ErrorInfo.vue";
 
 export default {
-  components: { WelcomeText, CategoriesMenu, MainResultItem, Loading },
+  components: {
+    WelcomeText,
+    CategoriesMenu,
+    MainResultItem,
+    Loading,
+    ErrorInfo,
+  },
   name: "Home",
 
   setup() {

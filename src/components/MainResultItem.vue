@@ -1,10 +1,13 @@
 <template>
-  <div class="item">
+  <router-link
+    :to="{ name: 'ItemDetail', params: { item_id: resultItem.id } }"
+    class="item"
+  >
     <img class="item__image" :src="resultItem.image" />
     <h2 class="item__title">{{ resultItem.title }}</h2>
     <p class="item__price">{{ resultItem.price + "$" }}</p>
     <p class="item__category">{{ resultItem.category }}</p>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -26,11 +29,13 @@ export default {
   width: 80%;
   min-height: 500px;
   background-color: white;
+  color: $main_text;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 20px 10px;
+  text-decoration: none;
 
   .item__image {
     width: 100%;

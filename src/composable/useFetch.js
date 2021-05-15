@@ -18,7 +18,7 @@ export default function useFetch(){
             state.results ? state.step = 1 : state.step = 0;
         }
         catch(error){
-            state.error = error;
+            state.error = true;
         }
         finally{
             state.isLoading = false;
