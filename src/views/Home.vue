@@ -2,7 +2,11 @@
   <div class="container">
     <WelcomeText />
     <CategoriesMenu @handleItemClick="handleItemClick" />
-    <section class="container__allResults">
+    <Loading v-if="isLoading" />
+    <section
+      class="container__allResults"
+      v-if="step == 1 && !isLoading && !error"
+    >
       <MainResultItem
         v-for="item in results"
         :key="item.id"
@@ -18,9 +22,10 @@ import useFetch from "../composable/useFetch";
 import WelcomeText from "../components/WelcomeText.vue";
 import CategoriesMenu from "../components/CategoriesMenu.vue";
 import MainResultItem from "../components/MainResultItem.vue";
+import Loading from "../components/Loading.vue";
 
 export default {
-  components: { WelcomeText, CategoriesMenu, MainResultItem },
+  components: { WelcomeText, CategoriesMenu, MainResultItem, Loading },
   name: "Home",
 
   setup() {

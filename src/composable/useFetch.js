@@ -9,6 +9,7 @@ export default function useFetch(){
     })
 
     const doRequest = async (url, item = '') =>{
+        state.isLoading = true;
         try{
             const response = await fetch(`${url}${item}`);
             const data = await response.json();
